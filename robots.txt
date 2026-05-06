@@ -1,0 +1,16 @@
+# robots.txt for https://www.psicologoflaviosoares.com.br/
+
+User-agent: *
+Allow: /
+
+# Allow AI bots for GEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.psicologoflaviosoares.com.br/sitemap.xml

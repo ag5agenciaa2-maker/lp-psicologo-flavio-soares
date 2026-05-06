@@ -1,0 +1,208 @@
+Quero que você crie o Site institucional "Sovereign Split" em 3 arquivos (index.html, style.css e script.js), usando APENAS HTML5 semântico, CSS3 (Flexbox, Grid, variáveis CSS) e JavaScript Vanilla ES6, sem qualquer framework ou biblioteca externa.
+REGRA: Use imagens genéricas premium (Unsplash) relacionadas ao nicho caso não haja imagens reais. Inclua URLs diretas das imagens.
+IDENTIDADE VISUAL BASE:
+Paleta: #D4922A (âmbar dourado — primário), #1C2B4A (navy escuro — secundário), #F5F0E8 (creme — fundo), #2A2A2A (texto), #E8D5B0 (âmbar claro — detalhe)
+Tipografia: Playfair Display (headings — autoridade com humanidade) + Inter (corpo — leitura limpa)
+Estilo: Autoridade acolhedora — foge do azul pasteurizado do setor; usa dourado institucional sobre navy como âncora visual
+Sensação: Transformação, propósito, força com sensibilidade humana
+LAYOUT ESCOLHIDO:
+Hero: D) Vídeo loop + texto com máscara de cor — vídeo real do profissional em ação (palestra/consultório) como background em loop, overlay diagonal âmbar-navy, título grande à esquerda em Playfair Display, subtítulo breve, CTA duplo ("Agendar Consulta" + "Para Empresas"), badge de credencial CRP flutuante
+Serviços: C) Zig-zag alternado — imagem/foto à esquerda e texto à direita alternando entre blocos dos 3 grandes eixos de serviço (Clínico, Corporativo, Cursos/Formações)
+Depoimentos: E) Carrossel fade + nota Google 5.0 visível com logo Google oficial e card de avaliação animado
+Sobre/Credenciais: D) Split 50/50 com imagem fixada — foto do Flávio (pose formal, blazer) fixada à direita com position sticky; texto sobre trajetória, credenciais CRP, missão e counters animados à esquerda
+ANIMAÇÕES DO PROJETO:
+
+Título Hero → opacity: 0 para 1, translateX(-40px) para 0, duração 700ms, easing: cubic-bezier(0.22,1,0.36,1), trigger: load
+Subtítulo Hero → opacity: 0 para 1, translateY(20px) para 0, duração 600ms, delay 200ms, easing: ease-out, trigger: load
+CTA buttons Hero → opacity: 0 para 1, translateY(20px) para 0, duração 500ms, delay 400ms, stagger: 120ms
+Badge CRP → scale(0.8) para scale(1), opacity: 0 para 1, duração 500ms, delay 600ms, easing: cubic-bezier(0.34,1.56,0.64,1)
+Zig-zag blocks → alternado: imagens slide from left/right 60px → 0, opacity 0→1, duração 700ms, easing: ease-out, trigger: IntersectionObserver 20% threshold
+Counters (anos de experiência, atendimentos, avaliações Google) → incremento numérico de 0 ao valor final em 1800ms, easing: easeOutQuart, trigger: IntersectionObserver
+Cards de avaliação → stagger fade-up: translateY(30px)→0, opacity 0→1, 500ms, stagger 100ms, trigger: scroll
+FAQ accordions → max-height: 0 para auto + opacity 0→1 em 350ms ease-in-out, trigger: click
+Navbar → ao scroll 80px: background rgba(28,43,74,0.97) + backdrop-filter blur(8px), transition 300ms
+Barra marquee → translateX(0) para translateX(-50%) em 25s linear infinite, hover pausa
+
+SEÇÕES OBRIGATÓRIAS:
+
+Navbar (logo + links âncora + CTA WhatsApp)
+Hero [D — Vídeo loop + máscara âmbar/navy + texto split]
+Seção dor/solução: "Você está carregando um peso sozinho?" — copy empático + 3 colunas de dor vs. solução
+Serviços [C — Zig-zag: Psicoterapia Individual | Psicologia Corporativa & NR-1 | Cursos & Formações]
+Barra marquee animada horizontal: TRANSFORMAÇÃO & VIDA · PSICÓLOGO CRP 05/42421 · CAMPO GRANDE – RJ · ATENDIMENTO PRESENCIAL E ONLINE · NR-1 · PALESTRAS CORPORATIVAS ·
+Seção de encantamento com galeria de fotos reais (palestra Ternium, conferência, círculo jovens) + vídeo incorporado
+Sobre/Credenciais [D — Split 50/50 fixado com counters: +14 anos | +500 atendimentos | 24 avaliações 5 estrelas | 3 eixos de atuação]
+Depoimentos [E — Carrossel fade + Google rating 5.0 com logo oficial]
+FAQ (10 perguntas com accordion)
+Localização: endereço + iframe Google Maps + botão "Como Chegar" + contatos e redes sociais
+CTA com formulário ao lado (nome, email, WhatsApp, tipo de atendimento, mensagem)
+Rodapé + Créditos
+
+RODAPÉ — coluna de contato (com ícones, todos clicáveis):
+Nome → link Google Business: https://share.google/ik7EuFhxYYmC9VN5H
+Endereço → link Google Maps: Av. Maria Teresa 260, Ed. Plaza Office – Bloco Unique, sala 225 – Campo Grande, RJ
+Telefone/WhatsApp: (21) 96439-4839
+CRÉDITOS:
+Esquerda: © Transformação & Vida 2026
+Direita: Desenvolvido por AG5 Agência (AG5 em #D4922A, link para www.ag5agencia.com.br)
+DIRETRIZES ANTI-GENÉRICO:
+
+Sem hero centralizado com fundo escuro e texto branco genérico
+Sem fade-up igual em todas as seções
+Sem paleta azul + branco + cinza
+Sem 3 colunas de ícone + título + texto
+
+QUALIDADE DE CÓDIGO:
+
+HTML semântico + IDs de ancoragem em todas as seções
+Variáveis CSS no :root para cores, fontes e espaçamentos
+Mobile-first com media queries
+IntersectionObserver para animações de scroll (nunca scroll event direto)
+will-change: transform, @media (prefers-reduced-motion), lazy loading
+Formulário com validação real
+
+OPCIONAL:
+
+Barra animada horizontal: TRANSFORMAÇÃO & VIDA · PSICÓLOGO CRP 05/42421 · NR-1 · PALESTRAS · CAMPO GRANDE – RJ
+Seção de avaliações Google com logo oficial (5.0 ⭐ / 24 avaliações) e cards animados
+
+
+1 — MÍDIAS PRINCIPAIS
+TipoArquivoStatusUso Sugerido✅ Logologo-desktop-flavio-soares.webpDisponívelNavbar e Rodapé✅ Foto do proprietário (formal)WhatsApp-Image (blazer/terno)DisponívelHero / Seção Sobre✅ Foto do proprietário (casual)SaveGram_App (camiseta preta, braços cruzados)DisponívelAbout / CTA✅ Palestra corporativa (Ternium)PALESTRA-EMPRESA-TERINUM.webpDisponívelSeção Corporativa / Encantamento✅ Palestra (grupo Light)PALESTRA-LIGHT.webpDisponívelSeção Corporativa✅ Conferência (igreja/evento)CONFERENCIA.webpDisponívelSeção Encantamento / Sobre✅ Roda de conversa/jovensIGREJA.webpDisponívelSeção Serviços Clínicos✅ Vídeo 1SAVEGR_1.MP4DisponívelHero (video loop bg)✅ Vídeo 2SAVEGR_2.MP4DisponívelSeção Encantamento / embed✅ Vídeo 3SAVEGR_3.MP4DisponívelSeção Encantamento✅ Vídeo 4SAVEGR_4.MP4DisponívelSeção Sobre✅ Vídeo 5SAD1D6_1.MP4DisponívelSeção Encantamento❌ Foto da fachada—AusenteLocalização❌ Foto interna do consultório—AusenteHero / Seção Clínica
+
+Nota: O formulário indica "3 fotos contando com a logo + 5 vídeos". As seções foram planejadas para valorizar ao máximo os 5 vídeos disponíveis (hero em vídeo loop + galeria de vídeos na seção de encantamento).
+
+
+2 — INFORMAÇÕES DA EMPRESA
+Nome: Transformação & Vida — Saúde Mental & Desenvolvimento Humano
+Nicho: Psicologia Clínica e Corporativa / Palestrante / Desenvolvimento Humano
+Fundação: Dezembro de 2010
+Sede: Campo Grande — Zona Oeste, Rio de Janeiro – RJ
+Proposta de valor: Transformar vidas unindo ciência psicológica e valores humanos, com atendimento acessível, ético e centrado no ser humano — da terapia individual à consultoria corporativa.
+Público-alvo:
+
+Adultos (homens e mulheres) com ansiedade, depressão, crises de identidade ou transição de vida
+Adolescentes em crise emocional
+Empresas que desejam implementar saúde mental corporativa e adequação à NR-1
+Igrejas e projetos sociais
+
+Principais serviços (3 eixos):
+
+Psicoterapia Clínica: Individual presencial, online, para homens, para mulheres, acompanhamento cristão, identidade e propósito, ansiedade, depressão, psicologia financeira, crises familiares/conjugais
+Psicologia Corporativa: Programas de saúde mental nas empresas, NR-1 (Gestão de Riscos Psicossociais), palestras e treinamentos, assédio moral/sexual, diagnóstico de clima, DDS psicológico, consultoria para líderes e RH, prevenção ao Burnout
+Cursos & Formações: Curso "Homens à Prova de Pressão", Mentoria "Propósito e Equilíbrio", "Gestão Emocional na Prática", Workshop "Inteligência Emocional e Propósito", campanhas temáticas (Setembro Amarelo, Janeiro Branco, Outubro Rosa)
+
+Diferenciais: Integração entre psicologia clínica e corporativa; acompanhamento terapêutico cristão; especialidade em público masculino; mais de 14 anos de atuação; palestrante em empresas (Ternium, Light); atendimento presencial e online.
+Profissional responsável: Flávio Soares — Psicólogo | CRP 05/42421 | Palestrante | Teólogo
+Descrição do perfil: Filho amado de Deus, casado com Jessica Melo, pai do Arthur Soares.
+Contatos:
+
+Telefone: (21) 96439-4839
+WhatsApp: (21) 94394-839 (atenção: número com dígito diferente no formulário — verificar)
+Endereço: Av. Maria Teresa 260, Ed. Plaza Office – Bloco Unique, sala 225 – Campo Grande, RJ – CEP 23050-160
+Horário: Seg–Sex: 7h às 22h | Sáb: 7h às 16h | Dom/Feriado: Fechado
+
+Links:
+
+Site atual: flaviosoares.me
+Instagram: https://www.instagram.com/flaviosoaresff_/ (1.274 seguidores / 562 posts)
+Facebook: https://www.facebook.com/psiflaviosoares/
+TikTok: https://www.tiktok.com/@flaviosoares.me
+Google Business: https://share.google/ik7EuFhxYYmC9VN5H
+Link avaliação Google: https://search.google.com/local/writereview?placeid=ChIJZdDqJkTjmwARtuj-22xwsPw
+
+Documentação: CRP 05/42421 (CRP-RJ) — Psicólogo registrado e verificado (✅ Google Business)
+
+3 — AVALIAÇÕES GOOGLE
+Plataforma: Google Business | Nota: ⭐ 5,0 | Total: 24 avaliações
+NomeEstrelasAvaliaçãoJhon Wesley⭐⭐⭐⭐⭐Ótimo profissional, bem dinâmico e muito comunicativo, facilitando a conversa e se tornando mais leve e fácil.Davi Macedo⭐⭐⭐⭐⭐Ótimo profissional, atendimento de excelência super indico!Thiago Mendes Oficial⭐⭐⭐⭐⭐Excelente profissional, super indico!sanchesdss⭐⭐⭐⭐⭐Excelente atendimento. Flávio contribuiu muito para que eu superasse uma fase muito difícil na minha vida e, hoje, continua me ajudando na busca pelo autoconhecimento e mediação de conflitos.Matheus Bastos⭐⭐⭐⭐⭐Flavio é um profissional excepcional! Atencioso e sempre pronto a ajudar o próximo. Super recomendo!Elisangela Couto⭐⭐⭐⭐⭐Atendimento de excelência, profissional super capacitado para a função que exerce, Flávio Soares muito obrigada, por toda ajuda ❤️❤️❤️Igor Pereira⭐⭐⭐⭐⭐Excelente profissional, recebi a indicação e me ajudou bastante. Super indicado.Daniele Lima⭐⭐⭐⭐⭐Para mim foi renovador e uma nova motivação.. gratidão sempre 🙏 Excelente profissionalClaudia Ribeiro⭐⭐⭐⭐⭐Fomos muito bem atendidos. Meu filho ficou imensamente satisfeito.Gabriel Neumann⭐⭐⭐⭐⭐O melhor investimento que eu já fiz em mim mesmo! Flavio é nota 10000!!
+
+4 — ANÁLISE DE BRANDING
+Nicho: Psicologia Clínica + Corporativa + Palestrante de Desenvolvimento Humano
+Posicionamento: Médio-Premium (consultório acessível com projeção corporativa)
+Estilo visual predominante: Autoridade Humana — foge do minimalismo pasteurizado do setor de saúde mental (azul + branco + verde água). A identidade da marca já carrega o caminho: escudo com cruz dourado em navy. Isso aponta para solidez, propósito e fé — diferencial real no mercado.
+Paleta de cores recomendada:
+NomeHexUsoÂmbar Dourado#D4922ACTA, destaques, acentosNavy Profundo#1C2B4AFundo hero, navbar, títulosCreme Ivory#F5F0E8Fundo de seções clarasÂmbar Claro#E8D5B0Hover, bordas, elementos decorativosGrafite Texto#2A2A2ACorpo de textoBranco#FFFFFFTexto sobre navy
+Tipografia recomendada:
+
+Playfair Display (Bold 700) — headings, âncora de autoridade com calor humano
+Inter (Regular 400 / Medium 500) — corpo, navegação, formulários
+
+Direção estética: Escudo dourado sobre fundo profundo. Elementos de textura sutil (grain leve). Fotografia em contexto real (palestrante, consultório, grupos). Fugas de margens intencionais. Sem ilustrações infantis ou ícones de "cérebro feliz".
+Sensação de marca: "Aqui sua dor tem nome, e sua transformação tem endereço." — Força, acolhimento, propósito, ciência + fé.
+Referências premium do nicho:
+
+Dr. Christian Conte (psicólogo/palestrante EUA) — personal brand forte, editorial
+Brené Brown (brenebrown.com) — humanidade como valor visual
+Instituto Positivamente (Brasil) — corporativo + humano
+Tony Robbins (visual de autoridade + impacto)
+
+
+5 — CHECKLIST DE PENDÊNCIAS
+ItemStatus❌ Foto da fachada do consultórioAusente❌ Foto interna do consultório (sala de atendimento)Ausente❌ E-mail profissionalAusente no formulário❌ LinkedIn profissionalAusente❌ CNPJ da empresaAusente⚠️ WhatsApp com número divergente21964394839 (tel) vs 2194394839 (WA) — verificar dígito⚠️ Foto de equipeApenas o proprietário disponível⚠️ Conteúdo dos vídeosNão visualizados — confirmar qual usar no hero (loop sem fala)
+
+6 — ANÁLISE DE REFERÊNCIAS WEBFLOW
+TEMPLATE 1 — Joyce | URL: https://joyce-template.webflow.io/
+HERO:
+Split assimétrico ~55/45. Coluna esquerda (55%): fundo navy escuro, tipografia Serif grande h1 ("Say hello to the painless you"), 4 tags horizontais de atributos (professional / convenient / affordable / effective), logo da profissional acima do título, botão CTA + botão play de vídeo flutuante. Coluna direita (45%): foto do profissional recortada, com SVG de texto decorativo grande ("hello") sobreimpresso em baixa opacidade atrás da imagem. Proporção hero: 100vh.
+NAV:
+Logo à esquerda, links centrais sem dropdown, telefone com ícone à direita. Ao rolar: navbar fica sticky com transição de background para navy sólido em 300ms.
+TIPOGRAFIA:
+Serif para h1–h3 (aprox. 5vw no h1, 2.4rem em h2). Sans-serif leve para corpo e tags (uppercase tracking expandido nas micro-labels). Peso do h1: 700.
+CORES (branding): Usar #1C2B4A no lugar do navy original + #D4922A no lugar do accent verde/teal do template. Fundo de seções alternadas com #F5F0E8.
+SERVIÇOS/CARDS:
+Grid 3 colunas, ícone SVG colorido acima, título h5, texto breve, link seta ">>". Fundo branco/creme, sem borda — separação por espaçamento.
+ANIMAÇÕES (formato técnico):
+
+Título H1 hero → translateX(-40px) para 0 + opacity 0→1 em 700ms, easing: cubic-bezier(0.22,1,0.36,1), trigger: load
+Imagem hero → translateX(40px) para 0 + opacity 0→1 em 800ms delay 150ms, easing: ease-out, trigger: load
+Tags de atributos → stagger translateY(10px)→0, opacity 0→1, 400ms, delay 100ms entre cada, trigger: load
+Cards serviços → translateY(30px)→0 + opacity 0→1, 500ms, stagger 120ms, trigger: IntersectionObserver
+Counters (+30y, +750, +500, +50k) → incremento numérico 0→valor, 1800ms, easing: easeOutQuart, trigger: IntersectionObserver
+Depoimentos → fade crossfade entre slides, 600ms ease-in-out, trigger: auto 4s + click
+
+MICRO-INTERAÇÕES:
+Links nav: underline grow da esquerda para a direita (width 0→100%) em 250ms. Botão primário: fundo âmbar→navy 300ms + text branco consistente. Cards serviços: border-bottom aparece no hover em cor âmbar.
+ELEMENTOS DECORATIVOS:
+SVG de texto grande em baixa opacidade atrás dos depoimentos ("joyful", "happy"). Assinatura cursiva SVG na seção Sobre. Nenhum blob ou forma orgânica — geometria limpa.
+RESUMO CONSTRUTIVO:
+Para recriar o estilo Joyce com a identidade Transformação & Vida: use fundo navy #1C2B4A no lado esquerdo do hero, Playfair Display 5.5vw em #FFFFFF para o título, substitua as tags por "Presencial · Online · Corporativo · Cristão" em uppercase Inter 0.75rem tracking-widest cor âmbar. Fotografia do Flávio (pose formal) recortada à direita com SVG decorativo da logo em baixíssima opacidade sobreimpresso. O accent verde do template original vira #D4922A. Mantenha os counters na seção Sobre e ícones SVG simples nos cards de serviço.
+
+TEMPLATE 2 — Psychologist 128 | URL: https://psychologist-128.webflow.io/home-1
+HERO:
+Fullscreen split 50/50. Coluna esquerda: fundo verde escuro institucional, H1 grande (aprox. 4.5vw, sans-serif bold), parágrafo explicativo breve (~80 palavras), dois CTAs lado a lado ("Get Start" sólido + "About Us" outline). Coluna direita: grade 2×2 de 4 fotografias de sessões com border-radius 16px, leve sobreposição entre os quadrantes criando profundidade. Hero ocupa 100vh.
+NAV:
+Logo à esquerda (verde), menu com dropdown multi-coluna para About e páginas internas, telefone + CTA "Contact Us" à direita. Sticky ao rolar com fundo branco + shadow 300ms transition.
+TIPOGRAFIA:
+Sans-serif moderna (Inter/DM Sans) em todo o template. H1: 4.5vw, peso 700. H2: 2.8rem, peso 600. Body: 1rem, peso 400, line-height 1.7.
+CORES (branding): Substituir verde #2d5a3d pelo navy #1C2B4A. Substituir verde claro dos badges pelo âmbar #D4922A. Fundo creme #F5F0E8 nas seções intercaladas.
+SERVIÇOS/CARDS:
+Lista vertical de 3 itens à esquerda de uma imagem grande: ícone circular colorido + título h5 + texto breve, cada item separado por linha. À direita: imagem grande (aprox. 500px) com border-radius 24px.
+ANIMAÇÕES (formato técnico):
+
+Grade 2×2 hero → imagens aparecem em sequência: [0,0]→[1,1] com opacity 0→1 em 400ms, stagger 150ms, trigger: load
+Barras de porcentagem (68%, 17%) → width 0%→valor% em 1200ms, easing: ease-in-out, trigger: IntersectionObserver
+Cards de serviço → translateY(30px)→0 + opacity 0→1, 500ms, stagger 100ms, trigger: IntersectionObserver
+Imagem da seção About → parallax suave: translateY(20px)→translateY(-20px) ao scroll, rate 0.3
+Botão CTA primário → scale(1)→scale(1.03) em 200ms ease-out no hover, shadow increase
+
+MICRO-INTERAÇÕES:
+Botão "Get Start": background swap âmbar↔navy em 280ms. Cards de sessão: border-left aparece em âmbar no hover. Nav dropdown: fade-in + translateY(-8px)→0 em 200ms ease.
+ELEMENTOS DECORATIVOS:
+Badge circular de "anos de experiência" flutuante sobre a imagem do About. Pequenas fotos empilhadas de clientes (stack de avatares) como social proof inline. Border-radius generoso (16–24px) nas imagens — não quadradas.
+RESUMO CONSTRUTIVO:
+Para recriar com a identidade Transformação & Vida: use a grade 2×2 de fotos reais no hero (Ternium, conferência, roda de jovens + foto do Flávio). Fundo esquerdo navy #1C2B4A, H1 em Playfair Display. Substituir verde por âmbar dourado em todos os acentos. O badge de anos de experiência (+14 anos CRP 05/42421) flutua sobre a foto do About com fundo âmbar. As barras de porcentagem viram counters de impacto (24 avaliações 5★, +500 atendimentos, 14 anos). Mantém a lógica vertical de serviços com ícone + título + texto ao lado de foto real.
+
+7 — SISTEMA DE VARIAÇÃO DE LAYOUT
+HERO — Escolha:
+✅ D) Vídeo loop + texto com máscara de cor
+Justificativa: A empresa possui 5 vídeos reais. Usar um dos vídeos do profissional em ação (palestra ou consultório) como background em loop com overlay diagonal âmbar/navy cria diferenciação máxima no nicho e valoriza o acervo de mídia disponível. Texto split à esquerda em Playfair Display.
+SERVIÇOS — Escolha:
+✅ C) Zig-zag alternado — imagem e texto trocam de lado
+Justificativa: Os 3 eixos de serviço têm fotos reais distintas (clínico, corporativo Ternium, corporativo Light). O zig-zag cria ritmo visual e usa todas as fotos disponíveis sem repetição.
+DEPOIMENTOS — Escolha:
+✅ E) Carrossel fade + nota Google visível
+Justificativa: 24 avaliações com nota 5,0 é um diferencial competitivo fortíssimo. A nota Google visível em destaque + logo oficial constrói confiança imediatamente.
+SOBRE/CREDENCIAIS — Escolha:
+✅ D) Split 50/50 com imagem fixada
+Justificativa: A foto profissional do Flávio (blazer/terno) tem qualidade e presença suficiente para ancorar a seção inteira. Enquanto o texto rola (trajetória + missão + CRP + counters), o rosto do profissional permanece à vista, reforçando a confiança pessoal — essencial em psicologia.
