@@ -1108,28 +1108,7 @@ button {
   line-height: 1.6;
 }
 
-.video-stats-premium {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
 
-.stat-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-separator {
-  width: 1px;
-  height: 60px;
-  background: var(--cor-primaria);
-  opacity: 0.2;
-}
 
 /* Video Gallery Vertical - IMPACTO MÁXIMO */
 .video-gallery-vertical {
@@ -1507,10 +1486,7 @@ button {
     padding: 0 1rem;
   }
 
-  .video-stats-premium {
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
+
 
   .ultra-video-title-large {
     font-size: 2.75rem;
