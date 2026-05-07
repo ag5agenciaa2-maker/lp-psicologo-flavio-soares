@@ -6,16 +6,21 @@ const $$ = (selector, context = document) => Array.from(context.querySelectorAll
 const navbar = $('#navbar');
 let lastScroll = 0;
 
+let rafPending = false;
 const handleScroll = () => {
-  const currentScroll = window.scrollY;
+  if (rafPending) return;
+  rafPending = true;
 
-  if (currentScroll > 80) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-
-  lastScroll = currentScroll;
+  requestAnimationFrame(() => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+    rafPending = false;
+  });
 };
 
 window.addEventListener('scroll', handleScroll, { passive: true });
@@ -559,7 +564,7 @@ const initVideoControls = () => {
       modalVideo.src = "";
       modalLoader.style.opacity = '1';
     }, 400);
-    document.body.style.overflow = '';
+    document.body.classList.remove('drawer-open');
   };
 
   if (modalClose) {
@@ -643,7 +648,7 @@ const initVideoControls = () => {
         modalContent.classList.add('vertical');
 
         modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('drawer-open');
         
         modalVideo.load();
         modalVideo.play().catch(err => console.log(err));

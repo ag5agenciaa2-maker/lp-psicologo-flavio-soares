@@ -1161,7 +1161,7 @@ button {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 2.5rem 2rem;
+  padding: 1.25rem 1.5rem;
   background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, transparent 100%);
   z-index: 2;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2301,10 +2301,23 @@ button {
 /* ==================== CTA / FORMULÁRIO ==================== */
 .section-cta {
   padding: var(--espaco-xl) 0;
-  background: var(--cor-secundaria);
+  position: relative;
+  background: var(--cor-secundaria) url('Assets/cta_background.png') no-repeat center center / cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.section-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(28, 43, 74, 0.92) 0%, rgba(28, 43, 74, 0.8) 100%);
+  z-index: 1;
 }
 
 .cta-container {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--espaco-lg);
@@ -2881,6 +2894,11 @@ body.drawer-open {
 
   .cta-container {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cta-descricao {
+    margin-bottom: 1rem;
   }
 
   .footer-main {
