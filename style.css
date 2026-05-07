@@ -140,8 +140,8 @@ button {
 }
 
 .btn-primary:hover {
-  background: var(--cor-secundaria);
-  border-color: var(--cor-secundaria);
+  background: #AA7522;
+  border-color: #AA7522;
 }
 
 .btn-outline {
