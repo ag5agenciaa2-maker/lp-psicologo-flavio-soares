@@ -490,58 +490,89 @@ if ('loading' in HTMLImageElement.prototype) {
   $$('img[loading="lazy"]').forEach(img => lazyObserver.observe(img));
 }
 
-/* ==================== WHATSAPP PREMIUM LOGIC ==================== */
+/* ==================== WHATSAPP PREMIUM LOGIC (AG5 V4) ==================== */
 function initWaPremium() {
-    const bubble = document.getElementById('wa-message-bubble');
-    const typing = document.getElementById('wa-typing');
-    const realMessage = document.getElementById('wa-real-message');
-    const badge = document.getElementById('wa-notification');
-    const closeBtn = document.getElementById('wa-close-btn');
-    const mainBtn = document.getElementById('wa-main-btn');
+  const MODO_COMPLIANCE = true; // true = nicho rigoroso (psicologia) → SEM badge
 
-    if (!bubble || !mainBtn) return;
+  const bubble        = document.getElementById('wa-message-bubble');
+  const typing        = document.getElementById('wa-typing');
+  const realMessage   = document.getElementById('wa-real-message');
+  const badge         = document.getElementById('wa-notification');
+  const closeBtn      = document.getElementById('wa-close-btn');
+  const mainBtn       = document.getElementById('wa-main-btn');
+  const targetSection = document.getElementById('servicos'); // 3ª seção
 
-    // 1. Mostrar o balão após 6 segundos
-    setTimeout(() => {
-        bubble.classList.add('show');
-        
-        // 2. Simular digitação por 2.5 segundos antes de mostrar a mensagem
+  if (!bubble || !typing || !realMessage || !closeBtn || !mainBtn || !targetSection) return;
+
+  const DELAY_BALAO            = 25000; // 25s após entrar na seção
+  const DURATION_TYPING        = 2500;  // 2.5s de "digitando..."
+  const DURATION_BALAO_VISIVEL = 15000; // 15s exibido depois de aparecer
+  const DELAY_BADGE_APOS_SUMIR = 5000;  // 5s após sumir → badge
+
+  let triggered = false;
+  let autoHideTimer = null;
+  let badgeTimer = null;
+  let userClosed = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !triggered) {
+        triggered = true;
+
+        // Botão flutuante aparece imediatamente
+        mainBtn.classList.add('visible');
+
+        // t=25s → balão sobe
         setTimeout(() => {
-            if (typing) typing.style.display = 'none';
-            if (realMessage) {
-                realMessage.style.display = 'block';
-                realMessage.classList.add('animate__animated', 'animate__fadeIn');
-            }
+          if (userClosed) return;
+          bubble.classList.add('show');
 
-            // 3. Auto-hide: sumir após 30 segundos de mensagem visível
-            setTimeout(() => {
-                bubble.classList.remove('show');
-                // Mostrar badge de notificação para manter engajamento
-                setTimeout(() => {
-                    if (badge) badge.classList.add('show');
-                }, 800);
-            }, 30000);
-        }, 2500);
+          // 2.5s de "digitando..." → mensagem real (via classes utilitárias, sem inline style)
+          setTimeout(() => {
+            if (userClosed) return;
+            typing.classList.add('is-hidden');
+            realMessage.classList.add('is-visible');
+            requestAnimationFrame(() => realMessage.classList.add('is-in'));
+          }, DURATION_TYPING);
 
-    }, 6000);
-
-    // Fechar balão
-    if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+          // t=40s → balão some automaticamente
+          autoHideTimer = setTimeout(() => {
+            if (userClosed) return;
             bubble.classList.remove('show');
-            // Mostrar notificação após fechar para manter engajamento
-            setTimeout(() => {
-                badge.classList.add('show');
-            }, 2000);
-        });
-    }
 
-    // Ao clicar no botão, remove tudo
-    mainBtn.addEventListener('click', () => {
-        bubble.classList.remove('show');
-        badge.classList.remove('show');
+            // t=45s → badge "1" aparece (só se NÃO for Compliance)
+            if (!MODO_COMPLIANCE && badge) {
+              badgeTimer = setTimeout(() => {
+                if (userClosed) return;
+                badge.classList.add('show');
+              }, DELAY_BADGE_APOS_SUMIR);
+            }
+          }, DURATION_BALAO_VISIVEL);
+        }, DELAY_BALAO);
+      }
     });
+  }, { threshold: 0.1 });
+
+  observer.observe(targetSection);
+
+  closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    userClosed = true;
+    bubble.classList.remove('show');
+    if (autoHideTimer) clearTimeout(autoHideTimer);
+    if (badgeTimer) clearTimeout(badgeTimer);
+    // Badge pós-close: só em nicho tranquilo
+    if (!MODO_COMPLIANCE && badge) {
+      setTimeout(() => { badge.classList.add('show'); }, DELAY_BADGE_APOS_SUMIR);
+    }
+  });
+
+  mainBtn.addEventListener('click', () => {
+    bubble.classList.remove('show');
+    if (badge) badge.classList.remove('show');
+    if (autoHideTimer) clearTimeout(autoHideTimer);
+    if (badgeTimer) clearTimeout(badgeTimer);
+  });
 }
 
 /* ==================== CUSTOM VIDEO LOGIC ==================== */
@@ -663,8 +694,145 @@ const initVideoControls = () => {
   });
 };
 
+/* ==================== CARROSSEL DE MOMENTOS ==================== */
+function initMomentosCarousel() {
+  const track = document.getElementById('momentosTrack');
+  if (!track) return;
+  const prev = document.getElementById('momentosPrev');
+  const next = document.getElementById('momentosNext');
+  const step = () => {
+    const slide = track.querySelector('.momentos-slide');
+    const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0) || 19;
+    return slide ? slide.offsetWidth + gap : 340;
+  };
+  if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+}
+
+/* ==================== GALERIA + LIGHTBOX ==================== */
+function initGaleriaLightbox() {
+  const track = document.getElementById('momentosTrack');
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+  const lbPrev = document.getElementById('lightboxPrev');
+  const lbNext = document.getElementById('lightboxNext');
+  const galeriaModal = document.getElementById('galeriaModal');
+  const galeriaGrid = document.getElementById('galeriaModalGrid');
+  const verTodasBtn = document.getElementById('verTodasFotos');
+
+  // Fonte de dados: slides do carrossel + imagens da galeria 'Transformação em movimento'
+  const fotos = [];
+  const srcSet = new Set();
+  const pushFoto = (src, alt, caption) => {
+    if (!src || srcSet.has(src)) return -1;
+    srcSet.add(src);
+    fotos.push({ src, alt: alt || '', caption: caption || alt || '' });
+    return fotos.length - 1;
+  };
+  if (track) {
+    track.querySelectorAll('.momentos-slide').forEach((fig) => {
+      const img = fig.querySelector('img');
+      const cap = fig.querySelector('figcaption');
+      if (img) pushFoto(img.getAttribute('src'), img.getAttribute('alt'), cap ? cap.textContent : '');
+    });
+  }
+  // Galeria 'Transformação em movimento' entra no mesmo conjunto (sem duplicar)
+  $$('.galeria-ultra .ultra-card-inner img').forEach((img) => {
+    pushFoto(img.getAttribute('src'), img.getAttribute('alt'), img.getAttribute('alt'));
+  });
+
+  let current = 0;
+
+  const showImage = (i) => {
+    if (i < 0) i = fotos.length - 1;
+    if (i >= fotos.length) i = 0;
+    current = i;
+    const f = fotos[current];
+    lbImg.setAttribute('src', f.src);
+    lbImg.setAttribute('alt', f.alt);
+    lbCaption.textContent = f.caption || f.alt;
+  };
+
+  const openLightbox = (i) => {
+    showImage(i);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    if (!galeriaModal || !galeriaModal.classList.contains('open')) document.body.classList.remove('modal-open');
+  };
+
+  // Clique nos slides do carrossel -> abre lightbox no índice certo
+  if (track) {
+    track.querySelectorAll('.momentos-slide').forEach((fig, idx) => {
+      fig.addEventListener('click', () => openLightbox(idx));
+    });
+  }
+
+  // Galeria "Transformação em movimento" -> abre lightbox direto
+  $$('.galeria-ultra .ultra-card-inner').forEach((card) => {
+    const img = card.querySelector('img');
+    if (!img) return;
+    card.addEventListener('click', () => {
+      const idx = fotos.findIndex((x) => x.src === img.getAttribute('src'));
+      if (idx >= 0) openLightbox(idx);
+    });
+  });
+
+  // Navegação do lightbox
+  if (lbPrev) lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showImage(current - 1); });
+  if (lbNext) lbNext.addEventListener('click', (e) => { e.stopPropagation(); showImage(current + 1); });
+  lightbox.querySelectorAll('[data-close-lightbox]').forEach((el) => el.addEventListener('click', closeLightbox));
+
+  // Modal grid "Ver todas as fotos"
+  const buildGrid = () => {
+    if (!galeriaGrid || galeriaGrid.childElementCount) return;
+    fotos.forEach((f, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'galeria-thumb';
+      btn.setAttribute('aria-label', 'Ampliar: ' + (f.caption || f.alt));
+      btn.innerHTML = '<img src="' + f.src + '" alt="' + f.alt.replace(/"/g, '&quot;') + '" loading="lazy">';
+      btn.addEventListener('click', () => openLightbox(idx));
+      galeriaGrid.appendChild(btn);
+    });
+  };
+  const openGaleria = () => {
+    buildGrid();
+    galeriaModal.classList.add('open');
+    galeriaModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  };
+  const closeGaleria = () => {
+    galeriaModal.classList.remove('open');
+    galeriaModal.setAttribute('aria-hidden', 'true');
+    if (!lightbox.classList.contains('open')) document.body.classList.remove('modal-open');
+  };
+  if (verTodasBtn) verTodasBtn.addEventListener('click', openGaleria);
+  if (galeriaModal) galeriaModal.querySelectorAll('[data-close-galeria]').forEach((el) => el.addEventListener('click', closeGaleria));
+
+  // Teclado: Escape fecha o topo; setas navegam o lightbox
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showImage(current - 1);
+      else if (e.key === 'ArrowRight') showImage(current + 1);
+    } else if (galeriaModal && galeriaModal.classList.contains('open') && e.key === 'Escape') {
+      closeGaleria();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initWaPremium();
   initVideoControls();
+  initMomentosCarousel();
+  initGaleriaLightbox();
 });
 

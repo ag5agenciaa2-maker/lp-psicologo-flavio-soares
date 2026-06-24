@@ -4,3 +4,16 @@ node_modules/
 .idea/
 tmp/
 *.log
+
+# Cache e build
+__pycache__/
+*.pyc
+blog/_gerar.py
+blog/_conteudos.py
+
+# Originais RAW de fotos (não vão pro site)
+*.heic
+*.HEIC
+*.CR2
+*.cr2
+blog/_template.html
