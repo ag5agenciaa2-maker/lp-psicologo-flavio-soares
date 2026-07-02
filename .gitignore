@@ -17,3 +17,4 @@ blog/_conteudos.py
 *.CR2
 *.cr2
 blog/_template.html
+.wrangler/
