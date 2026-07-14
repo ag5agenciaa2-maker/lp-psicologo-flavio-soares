@@ -1,0 +1,35 @@
+{
+  "_doc": "Posts pre-prontos (noindex) que rotinas na nuvem revelam 1 por semana. Rodar: python blog/_publicar.py <slug>. Isso: (1) troca noindex->index no post, (2) insere o card no topo do grid do index.html, (3) insere a entrada no schema blogPost[], (4) adiciona a URL ao sitemap.xml, (5) adiciona a linha ao llms.txt. Depois: git add -A && git commit && git push.",
+  "posts": {
+    "saude-mental-mundo-moderno": {
+      "data": "2026-07-20",
+      "tag": "Saúde Mental",
+      "section": "Bem-Estar",
+      "read": "6 min",
+      "title": "A importância da saúde mental no mundo moderno",
+      "excerpt": "Cobrança constante, excesso de estímulos e pouco tempo para si. Entenda por que cuidar da mente virou questão de sobrevivência, não de luxo.",
+      "alt": "Mulher pensativa e cansada sentada no sofá, apoiando a cabeça na mão",
+      "llms": "- [A importância da saúde mental no mundo moderno](https://www.flaviosoares.me/blog/saude-mental-mundo-moderno): por que cuidar da mente deixou de ser luxo diante da cobrança e do excesso de estímulos."
+    },
+    "saude-mental-do-brasileiro": {
+      "data": "2026-07-27",
+      "tag": "Saúde Mental",
+      "section": "Bem-Estar",
+      "read": "7 min",
+      "title": "A saúde mental do brasileiro: desafios e como buscar bem-estar",
+      "excerpt": "O Brasil lidera o ranking de ansiedade no mundo. Veja o que está por trás disso e caminhos reais para cuidar da sua saúde emocional.",
+      "alt": "Homem cabisbaixo com as mãos no rosto, retrato em preto e branco",
+      "llms": "- [A saúde mental do brasileiro](https://www.flaviosoares.me/blog/saude-mental-do-brasileiro): os fatores por trás do Brasil liderar o ranking de ansiedade e caminhos para o bem-estar."
+    },
+    "redes-sociais-saude-mental": {
+      "data": "2026-08-03",
+      "tag": "Comportamento",
+      "section": "Bem-Estar",
+      "read": "7 min",
+      "title": "O impacto das redes sociais na saúde mental",
+      "excerpt": "Comparação, FOMO e uso compulsivo cobram um preço da sua mente. Veja os efeitos reais e como usar as redes sem adoecer.",
+      "alt": "Homem acorrentado a uma tela de computador, símbolo do vício em redes sociais",
+      "llms": "- [O impacto das redes sociais na saúde mental](https://www.flaviosoares.me/blog/redes-sociais-saude-mental): efeitos da comparação, do FOMO e do uso compulsivo, e como usar as redes sem adoecer."
+    }
+  }
+}
