@@ -46,7 +46,7 @@ Auditoria completa seguindo a Skill SEO 01 (SEO + GEO). Aplicada após o trabalh
 ## 📋 Tarefas OFF-PAGE (você precisa fazer manualmente — a IA não consegue)
 
 - [ ] **Google Business Profile (GBP/GMB):** verificar e completar o perfil; garantir que o NAP (nome, endereço, telefone) bate exatamente com o site. Pegar o CID + Place ID e confirmar no schema.
-- [ ] **Google Search Console:** submeter `https://www.psicologoflaviosoares.com.br/sitemap.xml` e pedir indexação das páginas novas (blog, serviços).
+- [ ] **Google Search Console:** submeter `https://www.flaviosoares.me/sitemap.xml` e pedir indexação das páginas novas (blog, serviços).
 - [ ] **Google Analytics / Tag Manager:** instalar o código de rastreamento (não há tag de analytics no site hoje).
 - [ ] **PageSpeed Insights:** rodar o teste ao vivo após o deploy para pegar atrasos de servidor (rodar /psi-audit no modo online).
 - [ ] **Backlinks locais:** cadastrar em diretórios de psicólogos (ex: Doctoralia, CRP-RJ) e parcerias locais de Campo Grande.

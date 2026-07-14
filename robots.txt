@@ -1,4 +1,4 @@
-# robots.txt for https://www.psicologoflaviosoares.com.br/
+# robots.txt for https://www.flaviosoares.me/
 
 User-agent: *
 Allow: /
@@ -13,4 +13,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://www.psicologoflaviosoares.com.br/sitemap.xml
+Sitemap: https://www.flaviosoares.me/sitemap.xml

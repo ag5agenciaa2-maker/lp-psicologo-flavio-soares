@@ -13,20 +13,20 @@ Informações principais:
 
 ## Páginas
 
-- [Página inicial](https://www.psicologoflaviosoares.com.br/): visão geral do atendimento, eixos de atuação, depoimentos e contato.
-- [Psicoterapia Individual](https://www.psicologoflaviosoares.com.br/psicoterapia-individual): atendimento clínico presencial e online para adultos, com foco em ansiedade, depressão e desenvolvimento masculino.
-- [Psicologia Corporativa e NR-1](https://www.psicologoflaviosoares.com.br/psicologia-corporativa): programas de saúde mental para empresas, diagnóstico de riscos psicossociais, adequação à NR-1, prevenção de burnout e palestras.
-- [Cursos e Formações](https://www.psicologoflaviosoares.com.br/cursos-e-formacoes): mentorias e treinamentos sobre propósito, inteligência emocional e desenvolvimento humano.
+- [Página inicial](https://www.flaviosoares.me/): visão geral do atendimento, eixos de atuação, depoimentos e contato.
+- [Psicoterapia Individual](https://www.flaviosoares.me/psicoterapia-individual): atendimento clínico presencial e online para adultos, com foco em ansiedade, depressão e desenvolvimento masculino.
+- [Psicologia Corporativa e NR-1](https://www.flaviosoares.me/psicologia-corporativa): programas de saúde mental para empresas, diagnóstico de riscos psicossociais, adequação à NR-1, prevenção de burnout e palestras.
+- [Cursos e Formações](https://www.flaviosoares.me/cursos-e-formacoes): mentorias e treinamentos sobre propósito, inteligência emocional e desenvolvimento humano.
 
 ## Blog
 
-- [Blog](https://www.psicologoflaviosoares.com.br/blog/): artigos sobre saúde mental, NR-1, riscos psicossociais no trabalho e psicoterapia.
-- [O que é a NR-1?](https://www.psicologoflaviosoares.com.br/blog/o-que-e-a-nr1): guia introdutório sobre a Norma Regulamentadora 1 e a obrigação de gerenciar riscos psicossociais.
-- [NR-1 na prática: o que muda para as empresas](https://www.psicologoflaviosoares.com.br/blog/nr1-empresas-2026): como adequar a empresa à NR-1, passo a passo.
-- [Riscos psicossociais no trabalho](https://www.psicologoflaviosoares.com.br/blog/riscos-psicossociais-trabalho): como identificar e prevenir burnout, assédio e sobrecarga antes do afastamento.
-- [O que a terapia realmente faz pela sua mente](https://www.psicologoflaviosoares.com.br/blog/o-que-a-terapia-faz): como funciona o processo de psicoterapia e o que esperar.
+- [Blog](https://www.flaviosoares.me/blog/): artigos sobre saúde mental, NR-1, riscos psicossociais no trabalho e psicoterapia.
+- [O que é a NR-1?](https://www.flaviosoares.me/blog/o-que-e-a-nr1): guia introdutório sobre a Norma Regulamentadora 1 e a obrigação de gerenciar riscos psicossociais.
+- [NR-1 na prática: o que muda para as empresas](https://www.flaviosoares.me/blog/nr1-empresas-2026): como adequar a empresa à NR-1, passo a passo.
+- [Riscos psicossociais no trabalho](https://www.flaviosoares.me/blog/riscos-psicossociais-trabalho): como identificar e prevenir burnout, assédio e sobrecarga antes do afastamento.
+- [O que a terapia realmente faz pela sua mente](https://www.flaviosoares.me/blog/o-que-a-terapia-faz): como funciona o processo de psicoterapia e o que esperar.
 
 ## Optional
 
-- [Termos e Condições](https://www.psicologoflaviosoares.com.br/termos-e-condicoes): condições de uso do site.
-- [Política de Privacidade](https://www.psicologoflaviosoares.com.br/politica-de-privacidade): tratamento de dados e cookies.
+- [Termos e Condições](https://www.flaviosoares.me/termos-e-condicoes): condições de uso do site.
+- [Política de Privacidade](https://www.flaviosoares.me/politica-de-privacidade): tratamento de dados e cookies.
