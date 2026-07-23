@@ -364,6 +364,14 @@
         <div class="footer-credits-left">
           <p>© 2026 Psicólogo Flávio Soares</p>
           <div class="footer-legal-links">
+            <a href="#" id="ck-prefs-link" style="text-decoration:none; color:inherit; display:inline-flex; align-items:center; gap:6px; font-size: 0.75rem; color: rgba(255,255,255,0.6);">
+              <span id="cookie-toggle" style="display:inline-flex; align-items:center; width:28px; height:14px; background:rgba(255,255,255,0.1); border-radius:10px; padding:2px; border:1px solid rgba(255,255,255,0.2); position:relative; font-size:8px; font-weight:bold;">
+                <span style="color:#86EFAC; margin-left:2px;">✓</span>
+                <span style="color:#FCA5A5; margin-left:auto; margin-right:2px;">✕</span>
+                <span id="cookie-toggle-dot" style="position:absolute; left:15px; width:10px; height:10px; background:var(--cor-primaria); border-radius:50%; box-shadow:0 0 5px rgba(0,0,0,0.3); transition:left 0.2s ease;"></span>
+              </span>
+              Cookies
+            </a>
             <a href="../termos-e-condicoes.html">Termos e Condições</a>
             <a href="../politica-de-privacidade.html">Política de Privacidade</a>
           </div>
@@ -426,7 +434,6 @@
   <div id="ck-banner" class="ck-banner" role="dialog" aria-modal="true" aria-label="Aviso de cookies" aria-live="polite" aria-hidden="true">
       <div class="ck-banner__inner">
           <div class="ck-banner__content">
-              <h2 class="ck-banner__title">Valorizamos sua privacidade</h2>
               <p class="ck-banner__text">
                   Utilizamos cookies para aprimorar sua experiência de navegação, exibir conteúdo personalizado e analisar nosso tráfego. Ao clicar em <strong>"Aceitar todos"</strong>, você concorda com nosso uso de cookies conforme nossa <a href="../politica-de-privacidade.html" class="ck-banner__link">Política de Privacidade</a>.
               </p>
@@ -528,7 +535,6 @@
           </div><!-- /.ck-modal__body -->
 
           <div class="ck-modal__footer">
-              <button id="ck-modal-reject" class="ck-btn ck-btn--outline">Rejeitar</button>
               <button id="ck-modal-save" class="ck-btn ck-btn--ghost">Salvar Preferências</button>
               <button id="ck-modal-accept-all" class="ck-btn ck-btn--primary">Aceitar todos</button>
           </div>
