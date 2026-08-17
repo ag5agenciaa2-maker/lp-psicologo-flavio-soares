@@ -153,6 +153,17 @@ if (ctaContainer) {
   scrollObserver.observe(ctaContainer);
 }
 
+// Blog Cards e elementos de animação de scroll (.fade-up, .fade-in, .slide-left, .slide-right)
+$$('.blog-card').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 3) * 120}ms`;
+  scrollObserver.observe(el);
+});
+
+$$('.fade-up, .fade-in, .slide-left, .slide-right').forEach((el) => {
+  scrollObserver.observe(el);
+});
+
+
 /* ==================== COUNTERS ANIMADOS ==================== */
 const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
 
